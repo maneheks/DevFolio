@@ -1,19 +1,16 @@
-on: [push]
-
+on: push
+name: Deploy website on push
 jobs:
-  deploy_job:
+  web-deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-    name: deploy
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: FTP Deploy
-        uses: samkirkland/FTP-Deploy-Action@v1.2.4
-        with:
-          username: ${{ secrets.FTP_USERNAME }}
-          server: ${{ secrets.FTP_SERVER }}
-          port: ${{ secrets.FTP_PORT }}
-          local_path: '.'
-          remote_path: '/public'
-          sftp_only: false
-          password: ${{ secrets.FTP_PASSWORD }}
+    - name: Get latest code
+      uses: actions/checkout@v3
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
