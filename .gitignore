@@ -20,3 +20,6 @@ build/
 # Ignore any sensitive or private information (e.g., API keys)
 config.js
 secrets.json
+
+# Ignore GitHub folder
+.github/
