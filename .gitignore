@@ -1,0 +1,22 @@
+# Ignore operating system files and folders
+.DS_Store
+Thumbs.db
+
+# Ignore node_modules folder if you use Node.js
+node_modules/
+
+# Ignore any compiled files or build folders
+dist/
+build/
+*.log
+
+# Ignore any local development configuration files
+.env
+
+# Ignore PHP-related files (add these if you start using PHP)
+# *.php
+# /path/to/your/database.sql
+
+# Ignore any sensitive or private information (e.g., API keys)
+config.js
+secrets.json
